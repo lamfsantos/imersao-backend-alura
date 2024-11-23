@@ -8,3 +8,10 @@ export async function getTodosPosts() {
 
 	return colecao.find().toArray();
 }
+
+export async function enviarPost(novoPost) {
+	const db = conexao.db("imersao-alura");
+	const colecao = db.collection("posts");
+
+	return colecao.insertOne(novoPost);
+}
